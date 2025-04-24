@@ -1,93 +1,143 @@
-# AI Financial Advisor
+# AI Financial Advisor Dashboard
 
-A Streamlit-based financial advisor application that provides intelligent portfolio management, real-time stock insights, and news tracking capabilities.
+A modern, AI-powered financial dashboard built with Dash and Python that provides personalized investment advice, portfolio management, and real-time market insights.
+
+## Features
+
+- **Personalized Investment Planning**
+  - AI-driven portfolio optimization
+  - Custom investment goals analysis
+  - Risk assessment and recommendations
+
+- **Portfolio Dashboard**
+  - Real-time portfolio performance tracking
+  - Asset allocation visualization
+  - Risk metrics and diversification analysis
+  - Performance charts and metrics
+
+- **Live Market Data**
+  - Real-time stock price tracking
+  - Live trade monitoring
+  - Market sentiment analysis
+
+- **News Tracker**
+  - Financial news aggregation
+  - Market sentiment analysis
+  - AI-powered news insights
+
+- **AI Insights**
+  - Portfolio analysis and recommendations
+  - Market sentiment analysis
+  - Risk assessment and opportunities
+
+## Prerequisites
+
+- Python 3.7+
+- SingleStore database
+- Required Python packages (see requirements.txt)
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd finance_demo
+```
+
+2. Create and activate a virtual environment:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+3. Install required packages:
+```bash
+pip install -r requirements.txt
+```
+
+4. Set up environment variables:
+Create a `.env` file in the root directory with the following variables:
+```
+host=your_singlestore_host
+port=your_singlestore_port
+user=your_singlestore_user
+password=your_singlestore_password
+database=your_database_name
+anthropic_api_key=your_anthropic_api_key
+news_api_key=your_news_api_key
+openai_api_key = your_openai_api_key
+```
+
+## Running the Application
+
+1. Start the Dash application:
+```bash
+python dash_app.py
+```
+
+2. Open your web browser and navigate to:
+```
+http://localhost:8050
+```
 
 ## Project Structure
 
 ```
-├── .streamlit/
-│   └── config.toml      # Streamlit configuration
-├── components/
-│   ├── charts.py        # Data visualization components
-│   ├── news.py          # News display components
-│   └── portfolio.py     # Portfolio management components
-├── services/
-│   ├── ai_service.py    # OpenAI integration
-│   ├── news_service.py  # NewsAPI integration
-│   └── stock_service.py # yfinance integration
-├── utils/
-│   └── data_utils.py    # Data processing utilities
-└── main.py              # Main application entry point
+finance_demo/
+├── dash_app.py              # Main application file
+├── components/             # UI components
+│   ├── portfolio.py
+│   ├── news.py
+│   └── charts.py
+├── services/              # Business logic services
+│   ├── stock_service.py
+│   ├── news_service.py
+│   └── ai_service.py
+├── utils/                 # Utility functions
+│   └── data_utils.py
+├── requirements.txt       # Python dependencies
+└── .env                  # Environment variables
 ```
 
-## Setup Instructions
+## Features in Detail
 
-1. Install dependencies:
-```bash
-pip install streamlit yfinance newsapi-python plotly openai
-```
+### Portfolio Management
+- View and analyze your investment portfolio
+- Track performance metrics
+- Monitor asset allocation
+- Get AI-powered recommendations
 
-2. Set up API keys:
-- Create a `.env` file and add your API keys:
-```
-OPENAI_API_KEY=your_openai_key
-NEWS_API_KEY=your_newsapi_key
-```
+### Live Market Data
+- Real-time stock price tracking
+- Live trade monitoring
+- Market sentiment analysis
+- Customizable ticker selection
 
-3. Run the application:
-```bash
-streamlit run main.py
-```
+### AI-Powered Insights
+- Portfolio analysis
+- Risk assessment
+- Market sentiment analysis
+- Investment recommendations
 
-## Database Integration Points
+### News Tracking
+- Financial news aggregation
+- Market sentiment analysis
+- AI-powered news insights
 
-For database integration, consider:
+## Contributing
 
-1. Create a new `database/` directory with:
-   - `models.py` for database models
-   - `database.py` for database connection
-   - `repository.py` for database operations
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-2. Key tables needed:
-   - Users
-   - Portfolios
-   - Positions
-   - Transactions
-   - WatchLists
+## License
 
-3. Update these files to use database:
-   - `components/portfolio.py`: Replace sample data with database queries
-   - `services/stock_service.py`: Add position tracking
-   - `main.py`: Add user authentication
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Current Features
+## Acknowledgments
 
-1. Portfolio Dashboard
-   - Portfolio overview with key metrics
-   - Holdings table
-   - Performance charts
-   - Quick actions
-
-2. News Tracker
-   - Financial news search
-   - Market news feed
-   - Stock-specific news
-
-3. AI Insights
-   - Portfolio analysis
-   - Market sentiment analysis
-
-## Dependencies
-
-- Python 3.11
-- Streamlit
-- yfinance
-- NewsAPI
-- Plotly
-- OpenAI
-
-## Future Features
-
-- Real-time stock price updates
-- Advanced AI-powered financial insights
-- Portfolio optimization suggestions
+- Dash and Plotly for the visualization framework
+- SingleStore for the database
+- Various financial data providers
